@@ -1,6 +1,10 @@
 pipeline {
   agent any
   
+  environment {
+    OS_VERSION="Centos72"
+  }
+  
   stages{
     stage('Prepare') {
       steps {
@@ -29,7 +33,16 @@ pipeline {
           fi
         '''
         archiveArtifacts artifacts: 'target/*.txt'
+        
+        stash name: "first-stash", includes: "target/*"
       }
+    }
+  }
+  
+  post {
+    always {
+      echo "This is a post build step that will always run"
+      echo "Environment variable is ${env.OS_VERSION}"
     }
   }
 }
