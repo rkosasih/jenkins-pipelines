@@ -41,8 +41,9 @@ pipeline {
     stage ('test-post-publish') {
       steps {
         echo "Running Test Post Publish"
-        unstash "first-stash"
-        sh 'cat *.txt'
+        dir('first-stash-directory') {
+          unstash "first-stash"
+        }
       }
     }
   }
