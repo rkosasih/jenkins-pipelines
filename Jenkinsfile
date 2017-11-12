@@ -28,6 +28,7 @@ pipeline {
             cat ${target_dir}/${fileName}
           fi
         '''
+        archiveArtifacts artifacts: 'target/*.txt'
       }
     }
   }
