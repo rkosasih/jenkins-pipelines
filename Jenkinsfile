@@ -38,6 +38,18 @@ pipeline {
       }
     }
     
+    parallel {
+      
+      stage ('Parallel Step 1') {
+         echo "This is parallel step 1"
+      }
+      
+      stage ('Parallel Step 2') {
+        echo "This is parallel step 2"
+      }
+      
+    }
+    
     stage ('test-post-publish') {
       steps {
         echo "Running Test Post Publish"
