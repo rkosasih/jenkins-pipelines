@@ -43,6 +43,7 @@ pipeline {
         echo "Running Test Post Publish"
         dir('first-stash-directory') {
           unstash "first-stash"
+          sh 'cat target/*.txt'
         }
       }
     }
