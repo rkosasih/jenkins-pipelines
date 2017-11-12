@@ -6,7 +6,7 @@ pipeline {
       steps {
         echo "Hello World - Prepare"
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/rudyk88/jenkins-pipelines.git']]])
-        chmod 700 *.sh
+        sh 'chmod 700 *.sh'
         sh './prepare.sh'
       }
     }
