@@ -20,7 +20,7 @@ pipeline {
     stage ('Publish') {
       steps {
         echo "Hello World - Publish"
-        '''
+        sh '''
           target_dir="target"
           fileName="members_list.txt"
           if [ ! -z ${target_dir}/${fileName} ]; then
