@@ -42,7 +42,7 @@ pipeline {
       steps {
         echo "Running Test Post Publish"
         unstash "first-stash"
-        cat *.txt
+        sh 'cat *.txt'
       }
     }
   }
