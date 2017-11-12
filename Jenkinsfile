@@ -24,7 +24,7 @@ pipeline {
         sh '''
           target_dir="target"
           fileName="members_list.txt"
-          if [ ! -z ${target_dir}/${fileName} ]; then
+          if [ -f ${target_dir}/${fileName} ]; then
             cat ${target_dir}/${fileName}
           fi
         '''
