@@ -14,7 +14,6 @@ pipeline {
     stage ('Process') {
       steps {
         echo "Hello World - Process"
-        
         sh './process.sh'
       }
     }
