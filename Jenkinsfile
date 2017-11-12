@@ -6,14 +6,14 @@ pipeline {
       steps {
         echo "Hello World - Prepare"
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/rudyk88/jenkins-pipelines.git']]])
-        sh 'prepare.sh'
+        sh './prepare.sh'
       }
     }
   
     stage ('Process') {
       steps {
         echo "Hello World - Process"
-        sh 'process.sh'
+        sh './process.sh'
       }
     }
   
