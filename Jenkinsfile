@@ -37,6 +37,14 @@ pipeline {
         stash name: "first-stash", includes: "target/*"
       }
     }
+    
+    stage ('test-post-publish') {
+      steps {
+        echo "Running Test Post Publish"
+        unstash "first-stash"
+        cat *.txt
+      }
+    }
   }
   
   post {
