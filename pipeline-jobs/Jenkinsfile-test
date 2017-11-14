@@ -30,7 +30,7 @@ pipeline {
         echo "Hello World - Process"
           sh './process.sh'
 
-        performTest
+        performTest()
       }
       post {
         failure {
