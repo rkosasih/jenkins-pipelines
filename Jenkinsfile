@@ -5,6 +5,11 @@ pipeline {
     OS_VERSION="Centos72"
   }
   
+  parameters {
+    string(name: 'ENVIRONMENT', defaultValue: 'DEV', description: 'Environment i.e. DEV/SIT/UAT/PROD')
+    string(name: 'MARKET', defaultValue: 'AUSTRALIA', description: 'Market for selling products')
+  }
+  
   stages{
     stage('Prepare') {
       steps {
@@ -12,6 +17,9 @@ pipeline {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/rudyk88/jenkins-pipelines.git']]])
         sh 'chmod 700 *.sh'
         sh './prepare.sh'
+        echo "Display parameters:"
+        echo "1) ${params.ENVIRONMENT}"
+        echo "2) ${params.MARKET}"
       }
     }
   
