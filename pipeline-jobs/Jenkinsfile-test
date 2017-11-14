@@ -1,3 +1,5 @@
+@Library('jenkins-pipelines-libraries') _
+
 pipeline {
   agent any
   
@@ -9,8 +11,6 @@ pipeline {
     string(name: 'ENVIRONMENT', defaultValue: 'DEV', description: 'Environment i.e. DEV/SIT/UAT/PROD')
     string(name: 'MARKET', defaultValue: 'AUSTRALIA', description: 'Market for selling products')
   }
-
-  @Library('rudyk88/jenkins-pipelines') _
   
   stages{
     stage('Prepare') {
