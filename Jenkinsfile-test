@@ -2,7 +2,7 @@ pipeline {
   agent any
   
   environment {
-    OS_VERSION="Centos72"
+    OS_VERSION="Centos72-TEST"
   }
   
   parameters {
