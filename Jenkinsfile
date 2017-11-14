@@ -26,7 +26,12 @@ pipeline {
     stage ('Process') {
       steps {
         echo "Hello World - Process"
-        sh './process.sh'
+          sh './process.sh'
+      }
+      post {
+        failure {
+          echo "This step has failed!"
+        }
       }
     }
   
