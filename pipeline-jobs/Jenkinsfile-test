@@ -10,7 +10,7 @@ pipeline {
     string(name: 'MARKET', defaultValue: 'AUSTRALIA', description: 'Market for selling products')
   }
 
-  @Library('jenkins-pipelines') _
+  @Library('rudyk88/jenkins-pipelines') _
   
   stages{
     stage('Prepare') {
