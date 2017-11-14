@@ -9,6 +9,8 @@ pipeline {
     string(name: 'ENVIRONMENT', defaultValue: 'DEV', description: 'Environment i.e. DEV/SIT/UAT/PROD')
     string(name: 'MARKET', defaultValue: 'AUSTRALIA', description: 'Market for selling products')
   }
+
+  @Library('jenkins-pipelines') _
   
   stages{
     stage('Prepare') {
@@ -27,6 +29,8 @@ pipeline {
       steps {
         echo "Hello World - Process"
           sh './process.sh'
+
+        performTest
       }
       post {
         failure {
